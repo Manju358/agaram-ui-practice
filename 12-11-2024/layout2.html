@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <style>
+         .main-container{
+            width: 100%;
+            height: 500px;
+            border: 1px solid black;
+            background-color: antiquewhite;
+            
+         }   
+         .header{
+            width: 100%;
+            height: 30px;
+            border: 3px solid rgb(0, 0, 0);
+            background-color: skyblue;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: 30px;
+           
+         }
+         .container1{
+            width: 70%;
+            height: 400px;
+           display: flex;
+           flex-flow: column wrap;
+            margin-left: 30px;
+           justify-content: space-around;
+          }
+          .aside{
+            width: 300px;
+            height: 300px;
+            border: 2px double black;
+            background-color: blanchedalmond;
+          } 
+          .article{
+            width: 600px;
+            height: 300px;
+            border: 2px double black;
+            background-color: aquamarine;
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 20px;
+            justify-content: space-evenly;
+           margin-left: 20px;
+           
+           
+          }
+          .image{
+            width: 30%;
+            height: 120px;
+            border: 1px solid black;
+            flex-flow: row wrap;
+            margin-top: 170px;
+            margin-left: 40px;
+            background-color: orange;
+          } 
+          
+          .footer{
+            width: 930px;
+            height: 30px;
+            border: 3px solid rgb(0, 0, 0);
+            background-color: skyblue;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-left: 30px;
+            
+         }
+
+          
+
+
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="header">Header</div>
+          <div class="container1">
+             <div class="aside">Aside</div>
+             <div class="article">
+                 <h>Article</h>
+                 <div class="image">Image</div>
+                 <div class="image">Image</div> 
+                 <div class="image">Image</div> 
+             </div>
+           </div> 
+            <div class="footer">Footer</div>      
+        </div>
+    </body>
+</html>
