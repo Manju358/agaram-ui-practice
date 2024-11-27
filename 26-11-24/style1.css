@@ -1,0 +1,14 @@
+.container{
+   display: flex;
+   gap: 20px;
+   justify-content: space-evenly;
+   
+   
+}
+.box1{
+    border: 1px solid black;
+    width: 30%;
+    height: 50px;
+    column-gap: 20px;
+    text-align: center;
+}
