@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" id="email_input" placeholder="enter email"/>
+    <input type="password" id="password_input" placeholder="enter password"/>
+    <button onclick="login()">Login</button>
+    
+</body>
+<script>
+    function login(){
+    let email_value=document.getElementById("email_input").value;
+    let pass_value=document.getElementById("password_input").value;
+    if(email_value=="manju@gmail.com" && pass_value=="12345"){
+        alert("login success");
+    }
+    else{
+        alert("login failed");
+    }
+    console.log(email_value);
+    console.log(pass_value);
+    }
+   
+</script>
+</html>

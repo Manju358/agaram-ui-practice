@@ -82,9 +82,11 @@ for(let each of students){
 //   console.log(each.marks);
   for(let mar of each.marks){
      total2=total2+mar;
+    
   }
 //   console.log(total2);
   console.log(each.name+" "+ "mark"+" "+"is"+" "+total2);
+  total2=0;
 
 }
 for(let each of students){
@@ -97,3 +99,38 @@ for(let each of students){
 for(let each of students){
   console.log(each.name+" "+ "age"+" "+"is"+" "+each.age);
   }
+
+
+
+
+  //adding something
+  let students=[{
+  
+
+    name:"stu1",
+    age:20,
+    marks:[40,80,100,80,50]
+  },
+    {
+    name:"stu2",
+    age:25,
+     marks:[40,80,50,60,70]
+  },
+    {
+    name:"stu3",
+    age:29,
+     marks:[40,40,60,66,89]
+  }
+    ];
+  for(let each of students){
+   
+    if(each.age>=25){
+      each.Eligible="true";
+    
+      }
+    else{
+      each.Eligible="false";
+      }
+   
+    } 
+  console.log(students);
