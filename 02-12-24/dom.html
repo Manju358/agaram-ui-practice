@@ -12,17 +12,23 @@
     
 </body>
 <script>
+
+    let array=[];
     function login(){
     let email_value=document.getElementById("email_input").value;
     let pass_value=document.getElementById("password_input").value;
+
+    array.push({ email: email_value, password: pass_value });
+
     if(email_value=="manju@gmail.com" && pass_value=="12345"){
         alert("login success");
     }
     else{
         alert("login failed");
     }
-    console.log(email_value);
-    console.log(pass_value);
+    console.log("Inputs:", array);
+    // console.log(email_value);
+    // console.log(pass_value);
     }
    
 </script>
