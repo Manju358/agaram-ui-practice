@@ -1,11 +1,12 @@
 let resume =
 {
+    name            : "R.Manjula",     
+    
     personal_details:{
-        name            : "R.Manjula",
+       
         email           : "manjurajkumar98@gmail.com",
         address         : "41, pathalvillai,Nagercoil",
         phone           : 9942332666,
-        age             : 26,
         dob             : "24-05-1998",
         gender          : "Female",
         father_name     : "E.Rajkumar",
