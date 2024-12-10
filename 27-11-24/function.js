@@ -80,7 +80,7 @@ function printmyname(){
   console.log(output);
   
   function sum(num1,num2){
-    return num1+num2;
+    return num1+num2;                  
   }
   function Final(num1,num2){
     return num1*num2;

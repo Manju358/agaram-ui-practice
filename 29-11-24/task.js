@@ -118,6 +118,16 @@
   
   // input week number and print week day
   let days=4;
+  let weeks=[
+    {name:"sunday",days:1},
+    {name:"monday",days:2},
+    {name:"tuesday",days:3},
+    {name:"wednesday",days:4},
+    {name:"thursday",days:5},
+    {name:"friday",days:6},
+    {name:"saturday",days:7},
+
+  ]
    if (days==1) {
          console.log("sunday");
       } else if (days==2) {
@@ -131,7 +141,7 @@
       } else if (days==6) {
           console.log("friday");
       } else if (days==7) {
-           console.log("saaturday");
+           console.log("saturday");
       } else {
           console.log("invalid weeknumber");
       }
