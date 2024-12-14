@@ -14,7 +14,7 @@ let resume = {
                // Import the functions you need from the SDKs you need
                import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
                import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
-               // TODO: Add SDKs for Firebase products that you want to use
+               // TODO: Add SDKs for Firebase products that you want to use             
                // https://firebase.google.com/docs/web/setup#available-libraries
        
                // Your web app's Firebase configuration
@@ -88,6 +88,7 @@ let resume = {
                 document.getElementById(key4).value = "";
                 document.getElementById(key5).value = "";
             }
+            
             else if (key4) {
                 newObj[key1] = document.getElementById(key1).value;
                 newObj[key2] = document.getElementById(key2).value;
