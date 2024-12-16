@@ -49,7 +49,7 @@ let resume = {
                            languagesknown:JSON.stringify(resume.languagesknown), 
                            personal_details:JSON.stringify(resume.personal_details),
                        });
-                   alert("done");
+                   alert("Success");
        
                }) 
 

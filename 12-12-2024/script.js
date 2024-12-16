@@ -61,11 +61,11 @@ function clearElements() {
 onValue(userListInDB, function (snapshot) {
   if (snapshot.exists()) {
     let userArray = Object.entries(snapshot.val());
-    // console.log(userArray);
+    console.log(userArray);
     tblBodyEL.innerHTML = "";
     for (let i = 0; i < userArray.length; i++) {
       let currentUser = userArray[i];
-      // console.log(currentUser);
+      console.log(currentUser);
       let currentUserID = currentUser[0];
       let currentUserValue = currentUser[1];
       tblBodyEL.innerHTML += `
@@ -97,11 +97,11 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("btn-edit")) {
     const id = e.target.dataset.id;
    
-    const tdElements = e.target.closest("tr").children;
-    idEL.value = id;
-    nameEL.value = tdElements[1].textContent;
-    ageEL.value = tdElements[2].textContent;
-    cityEL.value = tdElements[3].textContent;
+    // const tdElements = e.target.closest("tr").children;
+    // idEL.value = id;
+    // nameEL.value = tdElements[1].textContent;
+    // ageEL.value = tdElements[2].textContent;
+    // cityEL.value = tdElements[3].textContent;
   }
   else if (e.target.classList.contains("btn-delete")) {
     if (confirm("Are you sure to Delete?")) {
