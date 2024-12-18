@@ -59,14 +59,17 @@ function display() {
                     </td>
                 </tr>`
             index = index + 1;
+            // list.push(each[2]);
         }
         document.getElementById("tbbody").innerHTML = trs;
     });
-
+// console.log(list);
     
 }
 
-window.display = display;
+window.display = display;  
+
+
 display();
 
 
