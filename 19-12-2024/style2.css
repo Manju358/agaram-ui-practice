@@ -1,0 +1,13 @@
+.container{
+    background-color: olive;
+  
+}
+.container1{
+    margin-left: 300px;
+}
+.container2{
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+
+}
