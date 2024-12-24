@@ -142,7 +142,7 @@ function display() {
                     <td>
                        <button onclick="deleteOption('${each[0]}')">            
                           Delete
-                        </button>
+              b           </button>
                         <button onclick='editData("${each[0]}",${JSON.stringify(each[1])})'>
                           Edit
                         </button>
@@ -172,7 +172,7 @@ function deleteOption(id) {
 window.deleteOption = deleteOption;
 
 function editData(id,data) {
-    console.log(data)
+    // console.log(data)
    document.getElementById('update_name').value = data.Name;
    document.getElementById('update_id').value = id;
    
@@ -207,6 +207,7 @@ function updateResume(){
 
 }
 window.updateResume = updateResume;
+display();
 
  
   

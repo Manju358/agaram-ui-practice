@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="home.js" type="module"></script>
+</head>
+<body>
+    <h2>Form</h2>
+    <form id="detail">
+        <div>
+            <label for="name">Name</label>
+            <input class="name" id="name">
+        </div>
+        <input class="btn btn-primary" type="submit" onclick="createData()" value="Submit" id="submit">
+    </form>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody id="tblbody">
+            <!-- <tr>
+                <td>1</td>
+                <td>Manju</td>
+                <td>
+                    <button>Delete</button>
+                    <button>Edit</button>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+  <div>
+    <input type="text" id="update_id"/>
+    <input type="text" id="update_name"/>
+    <button onclick="updateData()">Update</button>
+  </div>
+    
+    
+</body>
+</html>
