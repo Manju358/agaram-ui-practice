@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
     
-  
+    <link href="style2.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 </head>
 
 <body>
    
-    <table border="1">
+    <table border="1" class="table table-dark">
         <thead>
             <tr>
             <th>S.no</th>
             <th>Name</th>
+            <th>Email</th>
             
+            <th>Objective</th>
+            <th>Date</th>
+            <th>Place</th>
+           
             <th>Action</th>
             </tr>
            
@@ -27,15 +37,289 @@
          
         </form>
     </table>
-    <script src="resumebuilder.js" type="module"></script>
-    <div>
-        <input type="text" id="update_id"/>
-        <input type="text" id="update_name"/>
-        
-        <button onclick="updateResume()">Update</button>
-    </div>
 
+    <div class="resume-builder">
+        <h1 class="text-center">RESUME</h1>
+        <div class="container p-5 ">
+            <div class="container1 ">
+                <input type="hidden" id="update_id"/>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="update_name" class="form-control" onkeyup="addValue(this,'Name',null)" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Objective:</label>
+                    <div class="col-sm-5">
+                        <div class="form-floating">
+                            <textarea class="form-control" id="update_objective" placeholder="Leave a comment here" style="height: 100px"
+                                onkeyup="addValue(this,'Objective',null)"></textarea>
+                            <label for="floatingTextarea2"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>PERSONAL DETAILS</h3>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-5">
+                        <input type="text"  id="update_email" class="form-control"
+                            onkeyup="addValue(this,'email','personal_details')" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Fathers_name:</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="update_fathername" class="form-control"
+                            onkeyup="addValue(this,'father_name','personal_details')" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Mothers_name:</label>
+                    <div class="col-sm-5">
+                        <input type="text"  id="update_mothername"class="form-control"
+                            onkeyup="addValue(this,'mother_name','personal_details')" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">DOB:</label>
+                    <div class="col-sm-5">
+                        <input type="date" class="form-control" id="update_dob" onkeyup="addValue(this,'dob','personal_details')" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Gender:</label>
+                    <div class="col-sm-5 mt-2">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Male"
+                            id="update_gender_male" onclick="addValue(this,'gender','personal_details')" />
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Female"
+                            id="update_gender_female"  onclick="addValue(this,'gender','personal_details')" />
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Nationality:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="update_nationality"
+                            onkeyup="addValue(this,'nationality','personal_details')" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Phone:</label>
+                    <div class="col-sm-5">
+                        <input type="number" class="form-control" id="update_phonenumber"
+                            onkeyup="addValue(this,'phone','personal_details')" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Address:</label>
+                    <div class="col-sm-5">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"
+                            id="update_address" onkeyup="addValue(this,'address','personal_details')"></textarea>
+                            <label for="floatingTextarea2"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Marital status:</label>
+                    <div class="col-sm-5">
+
+                        <select class="form-select" aria-label="Default select example"
+                            onclick="addValue(this,'Marital status','personal_details')">
+                            <option selected>Status</option>
+                            <option value="UnMarried">UnMarried</option>
+                            <option value="Married">Married</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <h3>EDUCATION</h3>
+            <div class="row">
+                <div class="col-2  mt-2">
+                    <input type="text" class="form-control" aria-describedby="textHelpInline"
+                      placeholder="Enter course name">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" class="form-control" aria-describedby="textHelpInline"
+                       placeholder="Enter institiute name">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="number" class="form-control" aria-describedby="textHelpInline"
+                      placeholder="Enter course year">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="number" class="form-control" aria-describedby="textHelpInline"
+                       placeholder="Enter course percentage">
+
+                </div>
+                <div class="col-1  mt-1">
+                    <button
+                        onclick="addMultiValue('education', 'education1','course_name','course_institute','course_year','course_percentage')">Add</button>
+
+                </div>
+
+
+            </div>
+
+            <h3 class="mt-3">SKILLS</h3>
+            <div class="row">
+                <div class="col-4  mt-1">
+                    <input type="text" id="skills" placeholder="Enter skills" /> <button
+                        onclick="addArrayValue('skills')">Add</button>
+                </div>
+
+            </div>
+            <h3 class="mt-3">LANGUAGES KNOWN</h3>
+            <div class="row">
+                <div class="col-4  mt-2">
+                    <input type="text" id="languagesknown" placeholder="Enter Languages" /> <button
+                        onclick="addArrayValue('languagesknown')">Add</button>
+
+
+                </div>
+
+            </div>
+            <h3 class="mt-3">HOBBIES</h3>
+            <div class="row">
+                <div class="col-4  mt-1">
+                    <input type="text" placeholder="Enter hobbies" /> <button
+                        onclick="addArrayValue('hobbies')">Add</button>
+                </div>
+
+            </div>
+            <h3 class="mt-3">PROJECTS</h3>
+            <div class="row">
+                <div class="col-2  mt-2">
+                    <input type="text" class="form-control" aria-describedby="textHelpInline"
+                    id="projects1"  placeholder="Enter project title">
+                </div>
+                <div class="col-2 mt-2">
+                    <input type="text" class="form-control" aria-describedby="textHelpInline"
+                   placeholder="Enter project company">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" class="form-control" aria-describedby="textHelpInline"
+                   placeholder="Enter Project Year">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" class="form-control" aria-describedby="textHelpInline"
+                   placeholder="Enter project description">
+                </div>
+                <div class="col-2  mt-2">
+                    <button
+                        onclick="addMultiValue('project','project1','project_title','project_company','project_year','project_description')">Add</button>
+                </div>
+
+            </div>
+            <h3 class="mt-3">CERTIFICATION</h3>
+            <div class="row">
+                <div class="col-2  mt-2">
+                    <input type="text" id="certification_name" class="form-control"
+                     aria-describedby="textHelpInline" placeholder="Enter course name">
+                </div>
+                <div class="col-2 mt-2">
+                    <input type="number" id="certification_duration" class="form-control"
+                      aria-describedby="textHelpInline" placeholder="Enter course duration">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" id="certification_year" class="form-control"
+                     aria-describedby="textHelpInline" placeholder="Enter course Year">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" id="certification_place" class="form-control"
+                     aria-describedby="textHelpInline" placeholder="Enter course place">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" id="certification_institute" class="form-control"
+                    aria-describedby="textHelpInline" placeholder="Enter course institute">
+                </div>
+                <div class="col-2  mt-2">
+                    <button
+                        onclick="addMultiValue('certification','certification1','certification_name','certification_duration','certification_year','certification_place','certification_institute')">Add</button>
+                </div>
+            </div>
+            <h3 class="mt-3">WORK EXPERIENCE</h3>
+            <div class="row">
+                <div class="col-2  mt-2">
+                    <input type="text" id="Designation" class="form-control" aria-describedby="textHelpInline"
+                    placeholder="Designation">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="text" id="company_name" class="form-control" aria-describedby="textHelpInline"
+                      placeholder="Company Name">
+                </div>
+                <div class="col-2  mt-2">
+                    <input type="number" id="year" class="form-control" aria-describedby="textHelpInline"
+                      placeholder="Year">
+                </div>
+                <div class="col-2  mt-2">
+                    <button
+                        onclick="addMultiValue('workexperience','WorkExperience1','Designation','company_name','year')">Add</button>
+
+                </div>
+            </div>
+
+            <h3 class="mt-3">DECLARATION</h3>
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value=""
+                        aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox"
+                    placeholder="I hereby declare that the facts given above are genuine to the best of my knowledge">
+            </div>
+            <div class="mb-3 row mt-4">
+                <label for="inputName" class="col-sm-2 col-form-label">Date:</label>
+                <div class="col-sm-3">
+                    <input type="date"  id="update_date" class="form-control" onkeyup="addValue(this,'Date',null)" />
+                </div>
+            </div>
+            <div class="mb-3 row mt-4">
+                <label for="inputName" class="col-sm-2 col-form-label">Place:</label>
+                <div class="col-sm-3">
+                    <input type="text"  id="update_place" class="form-control" onkeyup="addValue(this,'Place',null)" />
+                </div>
+            </div>
+            <button onclick="updateResume()">Update</button>
+
+
+        </div>
+    </div>
+    <script src="resumebuilder.js" type="module"></script>
+
+    <!-- <div>
+        <input type="hidden" id="update_id"/>
+        <input type="text" id="update_name"/>
+    <input type="text" id="update_email"/>
+        <input type="text" id="update_objective"/>
+        <input type="text" id="update_date"/>
+        <input type="text" id="update_place"/>
+        <input type="text" id="update_skills"/>
+       
+      
+        <button onclick="updateResume()">Update</button>
+    </div> -->
+    <section>
+        <code id="output"></code>
+    </section>
 
 </body>
+
+<script>
+    setTimeout(() => {
+        display()
+    }, 2000);
+</script>
 
 </html>

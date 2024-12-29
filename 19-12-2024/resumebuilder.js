@@ -1,8 +1,8 @@
 let resume = {
-    Name: [],
-    Objective: [],
-    Place: [],
-    Date: [],
+    Name: "",
+    Objective: "",
+    Place: "",
+    Date: "",
     personal_details: {},
     skills: [],
     hobbies: [],
@@ -11,7 +11,6 @@ let resume = {
     project: [],
     certification: [],
     workexperience: []
-
 };
 
 
@@ -138,11 +137,18 @@ function display() {
                 trs = trs + `<tr>
                     <td>${index}</td>
                     <td>${each[1].Name}</td>
+                    <td>${JSON.parse(each[1].personal_details).email}</td>
+                   
+                  
+                    <td>${each[1].Objective}</td>
+                     <td>${each[1].Date}</td>
+                      <td>${each[1].Place}</td> 
+                      
                    
                     <td>
                        <button onclick="deleteOption('${each[0]}')">            
                           Delete
-              b           </button>
+                     </button>
                         <button onclick='editData("${each[0]}",${JSON.stringify(each[1])})'>
                           Edit
                         </button>
@@ -161,9 +167,6 @@ function display() {
 
 window.display = display;
 
-
-display();
-
 function deleteOption(id) {
     alert(1);
     let data = ref(db, `${tabname}${id}`);
@@ -173,9 +176,42 @@ window.deleteOption = deleteOption;
 
 function editData(id,data) {
     // console.log(data)
-   document.getElementById('update_name').value = data.Name;
-   document.getElementById('update_id').value = id;
+    const {email,father_name,mother_name,nationality,phone,address,gender} = JSON.parse(data.personal_details);  
+    document.getElementById('update_name').value = data.Name;
+    document.getElementById('update_id').value = id;
+    document.getElementById('update_objective').value = data.Objective;
+    document.getElementById('update_date').value = data.Date;
+    document.getElementById('update_place').value = data.Place;
+    document.getElementById("update_email").value = email;
+    document.getElementById("update_fathername").value = father_name;
+    document.getElementById("update_mothername").value = mother_name;
+    document.getElementById("update_nationality").value = nationality;
+    document.getElementById("update_phonenumber").value = phone;
+    document.getElementById("update_address").value = address;
+    // document.getElementById("update_dob").value = dob;
+   if(gender == "Male"){
+    document.getElementById("update_gender_male").checked = true;
+   }else{
+    document.getElementById("update_gender_female").checked = true;
+   }
    
+    resume.Name = data.Name;
+    resume.Objective = data.Objective;
+    resume.Data = data.Date;
+    resume.Place = data.Place;
+
+    resume.personal_details.email = data.personal_details.email;
+    resume.personal_details.father_name = data.personal_details.father_name;
+    resume.personal_details.mother_name = data.personal_details.mother_name;
+    resume.personal_details.nationality = data.personal_details.nationality;
+    resume.personal_details.phone = data.personal_details.phone;
+    resume.personal_details.address = data.personal_details.address;
+    resume.personal_details.gender = data.personal_details.gender;
+    // resume.personal_details.dob = data.personal_details.dob;
+   
+    
+
+
 
 } 
 window.editData = editData;
@@ -184,13 +220,41 @@ window.editData = editData;
 
 function updateResume(){
 
-    let name = document.getElementById('update_name').value;
+    let Name = resume.Name;
+   
     let id = document.getElementById('update_id').value;
+    let Objective = resume.Objective;
+    let Date = resume.Data;
+    let Place = resume.Place;
+    let email = resume.personal_details.email;
+    let father_name =  resume.personal_details.father_name;
+    let mother_name =  resume.personal_details.mother_name;
+    // let dob = resume.personal_details.dob;
+    let nationality =  resume.personal_details.nationality;
+   let phone = resume.personal_details.phone;
+   let address =  resume.personal_details.address;
+   let gender = resume.personal_details.gender;
+    let p_details = {
+        email:email,
+        father_name:father_name,
+        mother_name:mother_name,
+        nationality:nationality,
+        phone:phone,
+        address:address,
+        gender:gender,
+        // dob:dob,
+
+
+
+
+    }
+
+
     set(ref(db,'user/'+id), {
-        Name: name,
-            Objective:"",
-            Place:"",
-            Date: "",
+        Name: Name,
+            Objective: Objective,
+            Date: Date,
+            Place: Place,
             education:"",
             certification: "",
             project: "",
@@ -198,7 +262,7 @@ function updateResume(){
             skills: "",
             hobbies: "",
             languagesknown:"",
-            personal_details: ""
+            personal_details: JSON.stringify(p_details)
        
 
     
@@ -207,7 +271,7 @@ function updateResume(){
 
 }
 window.updateResume = updateResume;
-display();
+
 
  
   
