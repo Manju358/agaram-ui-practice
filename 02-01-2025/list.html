@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>s.no</th>
+                <th>name</th>
+                <th>email</th>
+                <th>skills</th>
+                <th>fathername</th>
+                <th>Action</th>
+            </tr>
+        <tbody id="tbbody">
+
+        </tbody>
+        </thead>
+    </table>
+    <div class=container>
+        <div>
+            <input type="hidden" id="updateid">
+            <label for="name">name</label>
+            <input type="text" placeholder="enter yourname" id="updatename" onkeyup="addValue(this, 'name', null)" />
+        </div>
+        <div class="box">
+            <label for="name">email</label>
+            <input type="text" placeholder="enter youremail" id="updateemail" onkeyup="addValue(this, 'email', null)" />
+        </div>
+    </div>
+    <h3>personaldetails</h3>
+    <div class="container2">
+        <div class="box1">
+            <label for="name">fathername:</label>
+            <input type="text" placeholder="enter fathername" id="updatefathername"
+                onkeyup="addValue(this, 'fathername', 'personaldetails')" />
+            <label for="name">nationality:</label>
+            <input type="text" placeholder="enter nationality" id="updatenationality"
+                onkeyup="addValue(this, 'nationality', 'personaldetails')" />
+        </div>
+    </div>
+    <h3>skills</h3>
+    <div class="mmk">
+        <div class="skil">
+
+            <label for="name">skills:</label>
+            <input type="text" placeholder="enter your skills" id="skills">
+            <button type="button" onclick="addValues('skills')">Add</button>
+        </div>
+        <ul id="listed">
+
+        </ul>
+    </div>
+    <div class="advsk">
+        <div class="hob">
+            <label for="name">hobbies:</label>
+            <input type="text" placeholder="enter your hobby" id="hobbies">
+            <button type="button" onclick="addValues('hobbies')">Add</button>
+        </div>
+        <ul id="list">
+
+        </ul>
+    </div>
+
+
+    <h3>education</h3>
+
+    <input type="text" placeholder="course_name" id="updatecourse_name">
+    <input type="text" placeholder="course_institute" id="updatecourse_institute">
+    <input type="text" placeholder="course_year" id="updatecourse_year">
+    <input type="text" placeholder="course_percentage" id="updatecourse_percentage">
+    <button type="button"
+        onclick="addMultiValue('education','course_name','course_institute','course_year','course_percentage')">Add</button>
+
+    <h3>project</h3>
+    <input type="text" placeholder="project_title" id="updateproject_title">
+    <input type="text" placeholder="project_description" id="updateproject_description">
+    <input type="text" placeholder="project_year" id="updateproject_year">
+
+    <button type="button"
+        onclick="addMultiValue('project','project_title','project_description','project_year')">Add</button>
+    <div class="footer  mt-4">
+        <button type="text" onclick="createResume()" id="submit">Submit</button>
+    </div>
+    <button onclick="updateResume()">Update</button>
+
+    <section>
+        <code id="output"></code>
+    </section>
+    <script>
+        setTimeout(() => {
+            display()
+        }, 2000);
+    </script>
+</body>
+
+</html>
