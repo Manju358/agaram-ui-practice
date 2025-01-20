@@ -56,11 +56,14 @@
                 project: JSON.stringify(resume?.project),
                 workexperience: JSON.stringify(resume?.workexperience),
                 skills: JSON.stringify(resume?.skills),
+               
                 hobbies: JSON.stringify(resume?.hobbies),
                 languagesknown: JSON.stringify(resume?.languagesknown),
                 personal_details: JSON.stringify(resume?.personal_details),
             });
+           
         alert("Success");
+       
         window.location.href = "list.html";
     }
     }
@@ -134,15 +137,15 @@
         display_output()
        
        if(key =="skills"){
-        displayNew(resume.skills,'ulist');
+        displayNew('skills','ulist');
        }else if (key =="hobbies"){
-        displayNew(resume.hobbies,'list');
+        displayNew('hobbies','list');
        }else if (key =="languagesknown"){
-        displayNew(resume.languagesknown,'listed');
+        displayNew('languagesknown','listed');
        }
     }
 
-       
+
     window.addArrayValue = addArrayValue
 
     function display_output() {
@@ -220,11 +223,11 @@
         document.getElementById("update_phonenumber").value = phone;
         document.getElementById("update_address").value = address;
         document.getElementById("update_dob").value = dob;
-    if(gender == "Male"){
+        if(gender == "Male"){
         document.getElementById("update_gender_male").checked = true;
-    }else{
+        }else{
         document.getElementById("update_gender_female").checked = true;
-    }
+        }
     
 
     
@@ -246,20 +249,20 @@
 
         let skills = JSON.parse(data.skills);
         resume.skills = skills;
-        displayNew(resume.skills,"ulist");
-    
+        displayNew("skills","ulist");
+       
         
        
 
 
         let hobbies = JSON.parse(data.hobbies);
         resume.hobbies = hobbies;
-        displayNew(resume.hobbies,"list");
+        displayNew("hobbies","list");
       
 
         let languagesknown = JSON.parse(data.languagesknown);
         resume.languagesknown = languagesknown;
-        displayNew(resume.languagesknown,"listed");
+        displayNew("languagesknown","listed");
 
         let education = JSON.parse(data.education);
         resume.education = education;
@@ -283,26 +286,96 @@
     } 
     window.editData = editData;
 
-    function displayNew(list,id){
+
+
+  
+
+      
+function deleteSkill(value,key,id) {
+    console.log(value);
+ console.log(key);
+        
+    alert("delete");
+    let arr = [];  
+    for(let each of resume[key]){
+        if(each!= value){
+           
+            arr.push(each);
+            console.log(arr);
+        }
+    }
+    resume[key]=arr;
+   
+    displayNew(key,id);
+}
+window.deleteSkill = deleteSkill;
+
+
+
+function deleteArray(index,key){
+    console.log(index);
+    alert("delete");
+    let Arra = [];
+       for (let each in resume[key]) {
+        // console.log(each);
+       
+        if (each != index ) {
+           
+            Arra.push(resume[key][each]);
+            // console.log(Arra);
+            
+        }
+       
+    }
+   
+    resume[key]= Arra;
+    
+    if(key=="education"){
+        displayEducation();
+      }else if(key=="project"){
+        displayProject();
+      }
+      else if(key=="certification"){
+        displayCertification();
+      }else if(key=="workexperience"){
+        displayWorkexperience();
+      }
+}
+window.deleteArray = deleteArray;
+
+
+
+
+function displayNew(key,id){
     let ul="";
-        for(let each of list){
+        for(let each of resume[key]){
+       
             ul=ul+`<li>
             ${each}
+               <button onclick="deleteSkill('${each}','${key}','${id}')">Delete</button> 
+               
+
+
             </li>`
         }
         document.getElementById(id).innerHTML = ul;
-        
+       
     }
+   
     function displayEducation(){
         let tr="";
+        let index=0;
         for(let each of  resume.education){
             tr=tr+`<tr>
            <td> ${each.course_name}</td>
             <td> ${each.course_institute}</td>
              <td> ${each.course_year}</td>
              <td>  ${each.course_percentage}</td>
-
+             <button onclick="deleteArray('${index}','education','tabbody')">Delete</button> 
+    
             </tr>`
+            index = index+1;
+           
         }
         document.getElementById("tabbody").innerHTML = tr;
         
@@ -310,14 +383,19 @@
 
     function displayProject(){
         let tr="";
+        let index=0;
         for(let each of resume.project){
             tr=tr+`<tr>
            <td> ${each.project_title}</td>
             <td> ${each.project_company}</td>
              <td> ${each.project_year}</td>
-             <td> ${each.project_description}</td>
+             <td> ${each.project_description}</td> 
+          <button onclick="deleteArray('${index}','project','tdbody')">Delete</button> 
 
             </tr>`
+            index = index+1;
+
+           
         }
         document.getElementById("tdbody").innerHTML = tr;
         
@@ -325,27 +403,35 @@
 
     function displayCertification(){
         let tr="";
+        let index=0;
         for(let each of resume.certification){
             tr=tr+`<tr>
                       <td>${each.certification_name}</td>
                                 <td>${each.certification_duration}</td>
                                 <td>${each.certification_year}</td>
                                 <td>${each.certification_place}</td>
-                                <td>${each.certification_institute}</td>
-
+                                <td>${each.certification_institute}</td>  
+                               <button onclick="deleteArray('${index}','certification','cbody')">Delete</button> 
             </tr>`
+            index = index+1;
         }
         document.getElementById("cbody").innerHTML = tr;
+        
+
         
     }
     function displayWorkexperience(){
         let tr="";
+        let index = 0;
         for(let each of resume.workexperience){
             tr=tr+`<tr>
                        <td>${each.Designation}</td>
                         <td>${each.company_name}</td>
                         <td>${each.year}</td>
-                        </tr>`
+                               <button onclick="deleteArray('${index}','workexperience','Wbody')">Delete</button> 
+
+                        </tr>` 
+                         index = index+1;
                                 
         }
         document.getElementById("Wbody").innerHTML = tr;
@@ -359,25 +445,6 @@
    
 
 
-    // function displayHobbies(){
-    //     let ul="";
-    //     for(let A of resume.hobbies){
-    //         ul=ul+`<li>
-    //         ${A}
-    //         </li>`
-    //     }
-    //     document.getElementById("list").innerHTML = ul;
-    // }
-
-    // function  displayLanguages(){
-    //     let ul="";
-    //     for(let B of resume.languagesknown){
-    //         ul=ul+`<li>
-    //         ${B}
-    //         </li>`
-    //     }
-    //     document.getElementById("listed").innerHTML = ul;
-    // }
 
 
 
@@ -411,6 +478,7 @@
             
         }
         let skills =  resume.skills;
+       
         let hobbies = resume.hobbies;
         let languagesknown = resume. languagesknown;
         let education = resume.education;
@@ -428,7 +496,7 @@
 
 
         set(ref(db,'user/'+id), {
-            Name: Name,
+                Name: Name,
                 Objective: Objective,
                 Date: Date,
                 Place: Place,
@@ -449,13 +517,3 @@
 
     }
     window.updateResume = updateResume;
-
-
-
-
-
-
-    
-    
-
-

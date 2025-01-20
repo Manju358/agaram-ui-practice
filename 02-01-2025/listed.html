@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resume.js" type="module"></script>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>S.no</th>
+                <th>name</th>
+                <th>objective</th>
+                <th>fathername</th>
+                <th>skills</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tbbody">
+            <!-- <tr>
+                <td>
+
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+    <h5>Resume</h5>
+    <div class="container">
+        <div class="container1">
+            <input type="hidden" id="updated_id">
+            <label for="name">name</label>
+            <input type="text" id="updatedname" placeholder="enter ur name" onkeyup="addvalue(this,'name',null)">
+            <label for="name">objective</label>
+            <input type="text" id="updatedobjective" placeholder="enter  objective" onkeyup="addvalue(this,'objective',null)">
+        </div>
+        <h2>personaldetails</h2>
+        <div class="container2">
+            <label for="name">email</label>
+            <input type="text" id="updatedemail" placeholder="enter ur email">
+            <label for="name">fathername</label>
+            <input type="text" id="updatedfathername" placeholder="enter ur fathername">
+
+        </div>
+        <h2>skills</h2>
+        <div class="container3">
+            <label for="name">skills</label>
+            <input type="text" id="skills" placeholder="enter ur skills">
+            <button type="text" onclick="addArrayValue('skills')">Add</button>
+        </div>
+        <ul id="list">
+
+        </ul>
+        <h2>hobbies</h2>
+        <div class="container4">
+            <label for="name">hobbies</label>
+            <input type="text" id="hobbies" placeholder="enter ur hobbies">
+            <button type="text" onclick="addArrayValue('hobbies')">Add</button>
+        </div>
+        <ul id="list1">
+            
+        </ul>
+        <h2>education</h2>
+        <div class="container5">
+            <div class="box">
+                <input type="text" id="coursename" placeholder="Enter coursename">
+                <input type="text" id="courseyear" placeholder="Enter courseyear">
+                <input type="text" id="coursepercentage" placeholder="Enter coursepercentage">
+                <input type="text" id="courseinstitute" placeholder="Enter courseinstitute">
+                <button type="text" onclick="addMultiValue('education','coursename','courseyear','coursepercentage','courseinstitute')">Add</button>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>coursename</th>
+                        <th>courseyear</th>
+                        <th>coursepercentage</th>
+                        <th>courseinstitute</th>
+                    </tr>
+                </thead>
+                <tbody id="tabbody">
+
+                </tbody>
+            </table>
+        </div>
+        <h2>project</h2>
+        <div class="container6">
+            <div class="box1">
+                <input type="text" id="project_title" placeholder="Enter project_title">
+                <input type="text" id="project_institute" placeholder="Enter project_institute">
+                <input type="text" id="project_year" placeholder="Enter project_year">
+
+                <button type="text" onclick="addMultiValue('project','project_title','project_institute','project_year')">Add</button>
+            </div>
+<table border="1">
+                <thead>
+                    <tr>
+                        <th>project_title</th>
+                        <th>project_institute</th>
+                        <th>project_year</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="container7">
+            <button type="button" id="submit" onclick="createResume()">Submit</button>
+        </div>
+    </div>
+    <button type="button" id="update" onclick="updateResume()">update</button>
+    
+
+    <section>
+        <code id="output"></code>
+    </section>
+    <script>
+        setTimeout(() => {
+            display()
+        }, 2000);
+
+    </script>
+
+</body>
+
+</html>
